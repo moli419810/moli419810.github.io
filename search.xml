@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>第一篇文章</title>
-    <url>/2020/04/15/hello-world/</url>
+    <url>/2020/04/19/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start-快速启动"><a href="#Quick-Start-快速启动" class="headerlink" title="Quick Start  快速启动"></a>Quick Start  快速启动</h2><h3 id="Create-a-new-post-创建一个新帖子"><a href="#Create-a-new-post-创建一个新帖子" class="headerlink" title="Create a new post 创建一个新帖子"></a>Create a new post 创建一个新帖子</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
@@ -19,44 +19,115 @@
 ]]></content>
   </entry>
   <entry>
-    <title>我想吃掉你的胰脏</title>
-    <url>/2020/04/18/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
+    <title>蕾姆</title>
+    <url>/2020/04/11/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F1/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
 <p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
 ]]></content>
       <categories>
         <category>动漫</category>
-        <category>感情</category>
+        <category>情感</category>
       </categories>
       <tags>
-        <tag>人物</tag>
+        <tag>治愈</tag>
+        <tag>恋爱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿萨姆</title>
+    <url>/2020/04/13/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F3/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>美食</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>拉姆</title>
+    <url>/2020/04/12/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F2/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>情感</category>
+      </categories>
+      <tags>
+        <tag>治愈</tag>
+        <tag>恋爱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>亚斯娜</title>
+    <url>/2020/04/14/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F4/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>游戏</category>
+      </categories>
+      <tags>
+        <tag>治愈</tag>
+        <tag>热血</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面码</title>
+    <url>/2020/04/17/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F7/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>动漫</category>
+      </categories>
+      <tags>
+        <tag>治愈</tag>
+        <tag>催泪</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>桐人</title>
+    <url>/2020/04/15/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F5/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>游戏</category>
+      </categories>
+      <tags>
+        <tag>治愈</tag>
+        <tag>热血</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>琪亚娜</title>
+    <url>/2020/04/19/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F6/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <tags>
         <tag>治愈</tag>
       </tags>
   </entry>
   <entry>
-    <title>第二篇文章测试</title>
-    <url>/2020/04/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start-快速启动"><a href="#Quick-Start-快速启动" class="headerlink" title="Quick Start  快速启动"></a>Quick Start  快速启动</h2><h3 id="Create-a-new-post-创建一个新帖子"><a href="#Create-a-new-post-创建一个新帖子" class="headerlink" title="Create a new post 创建一个新帖子"></a>Create a new post 创建一个新帖子</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server-运行服务器"><a href="#Run-server-运行服务器" class="headerlink" title="Run server 运行服务器"></a>Run server 运行服务器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files-生成静态文件"><a href="#Generate-static-files-生成静态文件" class="headerlink" title="Generate static files 生成静态文件"></a>Generate static files 生成静态文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites-部署到远程站点"><a href="#Deploy-to-remote-sites-部署到远程站点" class="headerlink" title="Deploy to remote sites 部署到远程站点"></a>Deploy to remote sites 部署到远程站点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <title>小鸟游六花</title>
+    <url>/2020/04/18/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F8/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
 ]]></content>
       <categories>
         <category>动漫</category>
-        <category>日常</category>
+        <category>情感</category>
       </categories>
       <tags>
-        <tag>人物</tag>
-        <tag>生活</tag>
+        <tag>治愈</tag>
+        <tag>恋爱</tag>
       </tags>
   </entry>
 </search>
