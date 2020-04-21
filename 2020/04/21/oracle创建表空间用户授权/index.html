@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Oracle全面详细操作 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="小白,"> 
+    <meta name="description" content="
+
+启动服务123net start oracleservice MYORACLEDBsqlplus sys/419810@orcl as sysdba  连接数据库实例sqlplus 用户名/密码,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.ico"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script src="/live2d-widget/autoload.js"></script>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://moli419810.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Oracle全面详细操作</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Oracle全面详细操作</h1>
+        <div class="stuff">
+            <span>四月 21, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/oracle%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">oracle数据库</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <span style="font-family:'宋体';">
+
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net start oracleservice MYORACLEDB</span><br><span class="line">sqlplus sys/419810@orcl as sysdba  连接数据库实例</span><br><span class="line">sqlplus 用户名/密码@数据库实例 as sysdba  连接数据库实例</span><br></pre></td></tr></table></figure>
+
+<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn 用户名/密码@数据库实例</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建临时表空间"><a href="#创建临时表空间" class="headerlink" title="创建临时表空间"></a>创建临时表空间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create temporary tablespace a_temp </span><br><span class="line">tempfile <span class="string">'F:\Oracle\Space\a\a_temp.dbf'</span> </span><br><span class="line">size 50m </span><br><span class="line">autoextend on  </span><br><span class="line">next 50m maxsize 20480m </span><br><span class="line">extent management <span class="built_in">local</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建命名空间"><a href="#创建命名空间" class="headerlink" title="创建命名空间"></a>创建命名空间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create TABLESPACE a --创建命名空间</span><br><span class="line">DATAFILE<span class="string">'F:\Oracle\Space\a\a.ORA'</span> --选择创建位置</span><br><span class="line">SIZE 50M --尺寸大小为50M</span><br><span class="line">AUTOEXTEND ON NEXT 50M --超过就自动增加50M</span><br><span class="line">MAXSIZE 1G --最大为1G</span><br><span class="line">EXTENT MANAGEMENT LOCAL SEGMENT SPACE MANAGEMENT AUTO;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建用户授权"><a href="#创建用户授权" class="headerlink" title="创建用户授权"></a>创建用户授权</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create user USER--创建用户名</span><br><span class="line">identified by USER----密码</span><br><span class="line">default tablespace a--默认表空间</span><br><span class="line">temporary tablespace a_temp; --临时表空间</span><br><span class="line">grant connect,resource,dba to USER;--给用户授权限</span><br></pre></td></tr></table></figure>
+
+<h3 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h3><p>DBA：拥有全部特权，是系统最高权限，只有DBA才可以创建数据库结构。<br>RESOURCE:拥有Resource权限的用户只可以创建实体，不可以创建数据库结构。<br>CONNECT：拥有Connect权限的用户只可以登录Oracle，不可以创建实体，不可以创建数据库结构。<br>对于普通用户：授予connect, resource权限。<br>对于DBA管理用户：授予connect，resource, dba权限。<br>且系统权限只能由DBA用户授出：sys, system(最开始只能是这两个用户)。普通用户通过授权可以具有与system相同的用户权限，<br>但永远不能达到与sys用户相同的权限，system用户的权限也可以被回收。<br>grant unlimited tablespace to myreport–这个用户可以在其他表空间里随意建表。<br>角色CONNECT、RESOURCE和DBA都不具有UNLIMITED TABLESPACE的系统权限；<br>用户SYS和SYSTEM都具有UNLIMITED TABLESPACE的系统权限。</p>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table userTB(  </span><br><span class="line">  stuid      number(10)   primary key,  </span><br><span class="line">  stuname    varchar2(20) not null,  </span><br><span class="line">  stusex     varchar2(4) </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="修改字段"><a href="#修改字段" class="headerlink" title="修改字段"></a>修改字段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table userTB modify stuid  number(11);</span><br><span class="line">alter table userTB modify stusex  varchar2(4) ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into userTB values(20172002222,<span class="string">'小毛'</span>,<span class="string">'男'</span>);</span><br><span class="line">insert into userTB values(20172004444,<span class="string">'小邓'</span>,<span class="string">'男'</span>);</span><br><span class="line">insert into userTB values(20172006666,<span class="string">'小李'</span>,<span class="string">'男'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加字段"><a href="#添加字段" class="headerlink" title="添加字段"></a>添加字段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table userTB add(sex number(30) not null);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除字段"><a href="#删除字段" class="headerlink" title="删除字段"></a>删除字段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table userTB drop（sex）</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除多个字段"><a href="#删除多个字段" class="headerlink" title="删除多个字段"></a>删除多个字段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table userTB drop (sex,column_2,...);</span><br></pre></td></tr></table></figure>
+
+<h3 id="某一项为空值赋值"><a href="#某一项为空值赋值" class="headerlink" title="某一项为空值赋值"></a>某一项为空值赋值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sum(NVL（sex,-10)) from usertb</span><br></pre></td></tr></table></figure>
+
+<h3 id="还原表"><a href="#还原表" class="headerlink" title="还原表"></a>还原表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">导出用户所有的表到D盘：exp moli419810/moli419810 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\biao.dmp;</span><br><span class="line">导出用户aa中的表dept到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept);</span><br><span class="line">导出用户aa中的表dept,emp到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept,emp);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除原用户"><a href="#删除原用户" class="headerlink" title="删除原用户"></a>删除原用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop user aa</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create user aa identified by 1234;（aa:用户名，1234：密码）</span><br><span class="line">grant dba,connect to aa;-----授权</span><br></pre></td></tr></table></figure>
+
+<h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--将D盘的biao.dmp导入到新建用户bb中：</span><br><span class="line">imp moli419810/moli419810 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\biao.dmp full=y</span><br><span class="line">将用户aa中表dept中的数据导入到新建用户的dept表中：</span><br><span class="line">imp bb/1234 file=d:\dept.dmp tables=(dept) ignore=y full=y</span><br></pre></td></tr></table></figure>
+
+</span>
+
+
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://music.163.com/song/media/outer/url?id=1323083542.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://music.163.com/song/media/outer/url?id=451782618.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='http://music.163.com/song/media/outer/url?id=451782618.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='http://music.163.com/song/media/outer/url?id=1350583043.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='false'
+        data-ci='4fe513c4e124bc78b99d'
+        data-cs='e3d83758319b888d6ed0d1b65f0593afb9b8104d'
+        data-r='https://github.com/moli419810/moli419810.github.io'
+        data-o='moli419810'
+        data-a='moli419810@163.com'
+        data-d='true'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>
