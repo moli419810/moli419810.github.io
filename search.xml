@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Oracle数据库备份还原</title>
+    <url>/2020/04/20/oracle%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/</url>
+    <content><![CDATA[<h2 style="font-family:'宋体'">oracle备份还原</h2>
+<p style="font-family:'宋体'">注释：exp 用户名/密码@数据库实例 file=存储位置.dmp</p>
+<p style="font-family:'宋体'">CMD备份语句：exp myreport/myreport@orcl file=d:/a.dmp</p>
+<p style="font-family:'宋体'">注释：imp 用户名/密码@数据库实例 file=存储位置.dmp full=y </p>
+<p style="font-family:'宋体'">CMD还原语句：imp youreport/youreport@orcl file=d:/a.dmp</p>
+<p style="font-family:'宋体'">如果还原时候，有部分表一样则会报错，可在还原语句后加上ignore=y </p>
+<h2 style="font-family:'宋体'">oracle导出库关于full=y命令</h2>
+<p style="font-family:'宋体'">1.如果加上“full=y”，将整个数据库全部导出，但是需要特殊的权限，一般用system用户就足够了，普通用户是不可以的</p>
+<p style="font-family:'宋体'">2.不加“full=y”，默认导出连接数据库的用户数据库对象，比如：exp myreport/myreport@orcl file=d:/myreport.dmp，导出myreport用户下的所有数据库对象</p>
+<p style="font-family:'宋体'">3.有多个用户，可以使用system来指定导出哪个用户的数据库对象，比如：exp system/密码@orcl file=d:/a.dmp owner=(用户1,用户2),普通用户是不可以指定owner的</p>
+<p style="font-family:'宋体'">4.导出一个用户的多张表，比如：exp myreport/myreport@orcl file=d:/myreport.dmp tables=(table1,table2),普通用户是不可以指定owner的</p>
+<p style="font-family:'宋体'">5.数据有多个实例的情况，这个要看你“@”后面是什么，如果@orcl，则在orcl实例上进行导出，@ora，则在ora实例上进行导出</p>
+
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>oracle数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蕾姆</title>
+    <url>/2020/04/11/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F1/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>情感</category>
+      </categories>
+      <tags>
+        <tag>治愈</tag>
+        <tag>恋爱</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第一篇文章</title>
     <url>/2020/04/19/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -69,45 +108,6 @@
       </tags>
   </entry>
   <entry>
-    <title>蕾姆</title>
-    <url>/2020/04/11/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F1/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
-<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
-]]></content>
-      <categories>
-        <category>动漫</category>
-        <category>情感</category>
-      </categories>
-      <tags>
-        <tag>治愈</tag>
-        <tag>恋爱</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Oracle数据库备份还原</title>
-    <url>/2020/04/20/oracle%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/</url>
-    <content><![CDATA[<h2 style="font-family:'宋体'">oracle备份还原</h2>
-<p style="font-family:'宋体'">注释：exp 用户名/密码@数据库实例 file=存储位置.dmp</p>
-<p style="font-family:'宋体'">CMD备份语句：exp myreport/myreport@orcl file=d:/a.dmp</p>
-<p style="font-family:'宋体'">注释：imp 用户名/密码@数据库实例 file=存储位置.dmp full=y </p>
-<p style="font-family:'宋体'">CMD还原语句：imp youreport/youreport@orcl file=d:/a.dmp</p>
-<p style="font-family:'宋体'">如果还原时候，有部分表一样则会报错，可在还原语句后加上ignore=y </p>
-<h2 style="font-family:'宋体'">oracle导出库关于full=y命令</h2>
-<p style="font-family:'宋体'">1.如果加上“full=y”，将整个数据库全部导出，但是需要特殊的权限，一般用system用户就足够了，普通用户是不可以的</p>
-<p style="font-family:'宋体'">2.不加“full=y”，默认导出连接数据库的用户数据库对象，比如：exp myreport/myreport@orcl file=d:/myreport.dmp，导出myreport用户下的所有数据库对象</p>
-<p style="font-family:'宋体'">3.有多个用户，可以使用system来指定导出哪个用户的数据库对象，比如：exp system/密码@orcl file=d:/a.dmp owner=(用户1,用户2),普通用户是不可以指定owner的</p>
-<p style="font-family:'宋体'">4.导出一个用户的多张表，比如：exp myreport/myreport@orcl file=d:/myreport.dmp tables=(table1,table2),普通用户是不可以指定owner的</p>
-<p style="font-family:'宋体'">5.数据有多个实例的情况，这个要看你“@”后面是什么，如果@orcl，则在orcl实例上进行导出，@ora，则在ora实例上进行导出</p>
-
-]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>oracle数据库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>拉姆</title>
     <url>/2020/04/12/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F2/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
@@ -133,21 +133,6 @@
       </categories>
       <tags>
         <tag>美食</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>亚斯娜</title>
-    <url>/2020/04/14/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F4/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
-<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
-]]></content>
-      <categories>
-        <category>动漫</category>
-        <category>游戏</category>
-      </categories>
-      <tags>
-        <tag>治愈</tag>
-        <tag>热血</tag>
       </tags>
   </entry>
   <entry>
@@ -202,6 +187,21 @@
       <tags>
         <tag>治愈</tag>
         <tag>恋爱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>亚斯娜</title>
+    <url>/2020/04/14/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F4/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>游戏</category>
+      </categories>
+      <tags>
+        <tag>治愈</tag>
+        <tag>热血</tag>
       </tags>
   </entry>
 </search>
