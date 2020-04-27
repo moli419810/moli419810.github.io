@@ -1,65 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Oracle数据库备份还原</title>
-    <url>/2020/04/20/oracle%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/</url>
-    <content><![CDATA[<h2 style="font-family:'宋体'">oracle备份还原</h2>
-<p style="font-family:'宋体'">注释：exp 用户名/密码@数据库实例 file=存储位置.dmp</p>
-<p style="font-family:'宋体'">CMD备份语句：exp myreport/myreport@orcl file=d:/a.dmp</p>
-<p style="font-family:'宋体'">注释：imp 用户名/密码@数据库实例 file=存储位置.dmp full=y </p>
-<p style="font-family:'宋体'">CMD还原语句：imp youreport/youreport@orcl file=d:/a.dmp</p>
-<p style="font-family:'宋体'">如果还原时候，有部分表一样则会报错，可在还原语句后加上ignore=y </p>
-<h2 style="font-family:'宋体'">oracle导出库关于full=y命令</h2>
-<p style="font-family:'宋体'">1.如果加上“full=y”，将整个数据库全部导出，但是需要特殊的权限，一般用system用户就足够了，普通用户是不可以的</p>
-<p style="font-family:'宋体'">2.不加“full=y”，默认导出连接数据库的用户数据库对象，比如：exp myreport/myreport@orcl file=d:/myreport.dmp，导出myreport用户下的所有数据库对象</p>
-<p style="font-family:'宋体'">3.有多个用户，可以使用system来指定导出哪个用户的数据库对象，比如：exp system/密码@orcl file=d:/a.dmp owner=(用户1,用户2),普通用户是不可以指定owner的</p>
-<p style="font-family:'宋体'">4.导出一个用户的多张表，比如：exp myreport/myreport@orcl file=d:/myreport.dmp tables=(table1,table2),普通用户是不可以指定owner的</p>
-<p style="font-family:'宋体'">5.数据有多个实例的情况，这个要看你“@”后面是什么，如果@orcl，则在orcl实例上进行导出，@ora，则在ora实例上进行导出</p>
-
-]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>oracle数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>蕾姆</title>
-    <url>/2020/04/11/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F1/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
-<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
-]]></content>
-      <categories>
-        <category>动漫</category>
-        <category>情感</category>
-      </categories>
-      <tags>
-        <tag>治愈</tag>
-        <tag>恋爱</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第一篇文章</title>
-    <url>/2020/04/19/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start-快速启动"><a href="#Quick-Start-快速启动" class="headerlink" title="Quick Start  快速启动"></a>Quick Start  快速启动</h2><h3 id="Create-a-new-post-创建一个新帖子"><a href="#Create-a-new-post-创建一个新帖子" class="headerlink" title="Create a new post 创建一个新帖子"></a>Create a new post 创建一个新帖子</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server-运行服务器"><a href="#Run-server-运行服务器" class="headerlink" title="Run server 运行服务器"></a>Run server 运行服务器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files-生成静态文件"><a href="#Generate-static-files-生成静态文件" class="headerlink" title="Generate static files 生成静态文件"></a>Generate static files 生成静态文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites-部署到远程站点"><a href="#Deploy-to-remote-sites-部署到远程站点" class="headerlink" title="Deploy to remote sites 部署到远程站点"></a>Deploy to remote sites 部署到远程站点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Oracle全面详细操作</title>
-    <url>/2020/04/21/oracle%E5%88%9B%E5%BB%BA%E8%A1%A8%E7%A9%BA%E9%97%B4%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83/</url>
+    <url>/2020/04/21/Oracle%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<span style="font-family:'宋体';">
 
 <h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net start oracleservice MYORACLEDB</span><br><span class="line">sqlplus sys/419810@orcl as sysdba  连接数据库实例</span><br><span class="line">sqlplus 用户名/密码@数据库实例 as sysdba  连接数据库实例</span><br></pre></td></tr></table></figure>
@@ -86,6 +29,8 @@
 
 <h3 id="某一项为空值赋值"><a href="#某一项为空值赋值" class="headerlink" title="某一项为空值赋值"></a>某一项为空值赋值</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">select sum(NVL（sex,-10)) from usertb</span><br></pre></td></tr></table></figure>
 
+<h3 id="替换某个字段的某个字符串"><a href="#替换某个字段的某个字符串" class="headerlink" title="替换某个字段的某个字符串"></a>替换某个字段的某个字符串</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">update usertb <span class="built_in">set</span> sex = replace(sex,<span class="string">'0'</span>,<span class="string">'1'</span>);</span><br></pre></td></tr></table></figure>
+
 <h3 id="还原表"><a href="#还原表" class="headerlink" title="还原表"></a>还原表</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">导出用户所有的表到D盘：exp moli419810/moli419810 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\biao.dmp;</span><br><span class="line">导出用户aa中的表dept到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept);</span><br><span class="line">导出用户aa中的表dept,emp到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept,emp);</span><br></pre></td></tr></table></figure>
 
 <h3 id="删除原用户"><a href="#删除原用户" class="headerlink" title="删除原用户"></a>删除原用户</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drop user aa</span><br></pre></td></tr></table></figure>
@@ -108,8 +53,78 @@
       </tags>
   </entry>
   <entry>
-    <title>拉姆</title>
-    <url>/2020/04/12/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F2/</url>
+    <title>Oracle数据库备份还原</title>
+    <url>/2020/04/20/Oracle%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/</url>
+    <content><![CDATA[<h2 style="font-family:'宋体'">oracle备份还原</h2>
+<p style="font-family:'宋体'">注释：exp 用户名/密码@数据库实例 file=存储位置.dmp</p>
+<p style="font-family:'宋体'">CMD备份语句：exp myreport/myreport@orcl file=d:/a.dmp</p>
+<p style="font-family:'宋体'">注释：imp 用户名/密码@数据库实例 file=存储位置.dmp full=y </p>
+<p style="font-family:'宋体'">CMD还原语句：imp youreport/youreport@orcl file=d:/a.dmp</p>
+<p style="font-family:'宋体'">如果还原时候，有部分表一样则会报错，可在还原语句后加上ignore=y </p>
+<h2 style="font-family:'宋体'">oracle导出库关于full=y命令</h2>
+<p style="font-family:'宋体'">1.如果加上“full=y”，将整个数据库全部导出，但是需要特殊的权限，一般用system用户就足够了，普通用户是不可以的</p>
+<p style="font-family:'宋体'">2.不加“full=y”，默认导出连接数据库的用户数据库对象，比如：exp myreport/myreport@orcl file=d:/myreport.dmp，导出myreport用户下的所有数据库对象</p>
+<p style="font-family:'宋体'">3.有多个用户，可以使用system来指定导出哪个用户的数据库对象，比如：exp system/密码@orcl file=d:/a.dmp owner=(用户1,用户2),普通用户是不可以指定owner的</p>
+<p style="font-family:'宋体'">4.导出一个用户的多张表，比如：exp myreport/myreport@orcl file=d:/myreport.dmp tables=(table1,table2),普通用户是不可以指定owner的</p>
+<p style="font-family:'宋体'">5.数据有多个实例的情况，这个要看你“@”后面是什么，如果@orcl，则在orcl实例上进行导出，@ora，则在ora实例上进行导出</p>
+
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>oracle数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一篇文章</title>
+    <url>/2020/04/19/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start-快速启动"><a href="#Quick-Start-快速启动" class="headerlink" title="Quick Start  快速启动"></a>Quick Start  快速启动</h2><h3 id="Create-a-new-post-创建一个新帖子"><a href="#Create-a-new-post-创建一个新帖子" class="headerlink" title="Create a new post 创建一个新帖子"></a>Create a new post 创建一个新帖子</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server-运行服务器"><a href="#Run-server-运行服务器" class="headerlink" title="Run server 运行服务器"></a>Run server 运行服务器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files-生成静态文件"><a href="#Generate-static-files-生成静态文件" class="headerlink" title="Generate static files 生成静态文件"></a>Generate static files 生成静态文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites-部署到远程站点"><a href="#Deploy-to-remote-sites-部署到远程站点" class="headerlink" title="Deploy to remote sites 部署到远程站点"></a>Deploy to remote sites 部署到远程站点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>SQLserver</title>
+    <url>/2020/04/26/SQLserver%E8%A7%A6%E5%8F%91%E5%99%A8/</url>
+    <content><![CDATA[<span style="font-family:'宋体';">
+
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">使用触发器有如下优点：</span><br><span class="line">1. 自动执行。触发器在对表的数据作了任何修改（比如手工输入或者应用程序的操作）之后立即被激活。</span><br><span class="line">2. 级联更新。触发器可以通过数据库中的相关表进行层叠更改，这比直接把代码写在前台的做法回更安全合理。</span><br><span class="line">3. 强化约束。触发器可以引用其它表中的列，能够实现比CHECK约束更为复杂的约束。</span><br><span class="line">4. 跟踪变化。触发器可以阻止数据库中未经许可的指定更新和变化。</span><br><span class="line">5. 强制业务答逻辑。触发器可用于执行管理任务，并强制影响数据库的复杂业务规则。</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="创建触发器-insert"><a href="#创建触发器-insert" class="headerlink" title="创建触发器 insert"></a>创建触发器 insert</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">添加一条订单时﹐减少商品表相应的货品记录中的库存</span><br><span class="line">create trigger trigger_order</span><br><span class="line">on ordertb</span><br><span class="line">after insert</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">  update shoptb <span class="built_in">set</span> shopnum-=inserted.num</span><br><span class="line">  from shopTB,inserted</span><br><span class="line">  <span class="built_in">where</span> shopTB.shopid=inserted.shopid</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除触发器"><a href="#删除触发器" class="headerlink" title="删除触发器"></a>删除触发器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drop  trigger trigger_order</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建触发器-delete"><a href="#创建触发器-delete" class="headerlink" title="创建触发器 delete"></a>创建触发器 delete</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">在Goods表建立删除触发器﹐实现Goods表和Orders表的级联删除</span><br><span class="line">create trigger goodsdelete</span><br><span class="line">on goods</span><br><span class="line">after delete</span><br><span class="line">as</span><br><span class="line">delete from orders</span><br><span class="line"><span class="built_in">where</span> goodsname <span class="keyword">in</span></span><br><span class="line">(select name from deleted)</span><br></pre></td></tr></table></figure>
+
+</span>
+
+
+
+
+]]></content>
+      <categories>
+        <category>工作</category>
+        <category>Sqlserver</category>
+      </categories>
+      <tags>
+        <tag>触发器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蕾姆</title>
+    <url>/2020/04/11/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F1/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
 <p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
 ]]></content>
@@ -136,8 +151,38 @@
       </tags>
   </entry>
   <entry>
+    <title>拉姆</title>
+    <url>/2020/04/12/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F2/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>情感</category>
+      </categories>
+      <tags>
+        <tag>治愈</tag>
+        <tag>恋爱</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>桐人</title>
     <url>/2020/04/15/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F5/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>游戏</category>
+      </categories>
+      <tags>
+        <tag>治愈</tag>
+        <tag>热血</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>亚斯娜</title>
+    <url>/2020/04/14/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F4/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
 <p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
 ]]></content>
@@ -187,21 +232,6 @@
       <tags>
         <tag>治愈</tag>
         <tag>恋爱</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>亚斯娜</title>
-    <url>/2020/04/14/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F4/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
-<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
-]]></content>
-      <categories>
-        <category>动漫</category>
-        <category>游戏</category>
-      </categories>
-      <tags>
-        <tag>治愈</tag>
-        <tag>热血</tag>
       </tags>
   </entry>
 </search>

@@ -93,6 +93,8 @@
 
 <h3 id="某一项为空值赋值"><a href="#某一项为空值赋值" class="headerlink" title="某一项为空值赋值"></a>某一项为空值赋值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sum(NVL（sex,-10)) from usertb</span><br></pre></td></tr></table></figure>
 
+<h3 id="替换某个字段的某个字符串"><a href="#替换某个字段的某个字符串" class="headerlink" title="替换某个字段的某个字符串"></a>替换某个字段的某个字符串</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update usertb <span class="built_in">set</span> sex = replace(sex,<span class="string">'0'</span>,<span class="string">'1'</span>);</span><br></pre></td></tr></table></figure>
+
 <h3 id="还原表"><a href="#还原表" class="headerlink" title="还原表"></a>还原表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">导出用户所有的表到D盘：exp moli419810/moli419810 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\biao.dmp;</span><br><span class="line">导出用户aa中的表dept到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept);</span><br><span class="line">导出用户aa中的表dept,emp到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept,emp);</span><br></pre></td></tr></table></figure>
 
 <h3 id="删除原用户"><a href="#删除原用户" class="headerlink" title="删除原用户"></a>删除原用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop user aa</span><br></pre></td></tr></table></figure>
