@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SQLserver - Hexo</title>
+    <title>SQLserver触发器 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -46,7 +46,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://moli419810.github.io"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">SQLserver</h3>
+    <h3 class="subtitle">SQLserver触发器</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -61,7 +61,7 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">SQLserver</h1>
+        <h1 class="title">SQLserver触发器</h1>
         <div class="stuff">
             <span>四月 26, 2020</span>
             
@@ -80,6 +80,7 @@
 <li>跟踪变化。触发器可以阻止数据库中未经许可的指定更新和变化。</li>
 <li>强制业务答逻辑。触发器可用于执行管理任务，并强制影响数据库的复杂业务规则。 </li>
 </ol>
+<p><img src="http://pic.netbian.com/uploads/allimg/190609/105506-156004890673db.jpg" alt="SQLserver触发器"></p>
 <h3 id="创建触发器-insert"><a href="#创建触发器-insert" class="headerlink" title="创建触发器 insert"></a>创建触发器 insert</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">添加一条订单时﹐减少商品表相应的货品记录中的库存</span><br><span class="line">create trigger trigger_order</span><br><span class="line">on ordertb</span><br><span class="line">after insert</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">  update shoptb <span class="built_in">set</span> shopnum-=inserted.num</span><br><span class="line">  from shopTB,inserted</span><br><span class="line">  <span class="built_in">where</span> shopTB.shopid=inserted.shopid</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
 <h3 id="删除触发器"><a href="#删除触发器" class="headerlink" title="删除触发器"></a>删除触发器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop  trigger trigger_order</span><br></pre></td></tr></table></figure>

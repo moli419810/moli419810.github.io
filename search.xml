@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Oracle全面详细操作</title>
+    <url>/2020/04/21/Oracle%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<span style="font-family:'宋体';">
+
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net start oracleservice MYORACLEDB</span><br><span class="line">sqlplus sys/419810@orcl as sysdba  连接数据库实例</span><br><span class="line">sqlplus 用户名/密码@数据库实例 as sysdba  连接数据库实例</span><br></pre></td></tr></table></figure>
+
+<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conn 用户名/密码@数据库实例</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建临时表空间"><a href="#创建临时表空间" class="headerlink" title="创建临时表空间"></a>创建临时表空间</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create temporary tablespace a_temp </span><br><span class="line">tempfile <span class="string">'F:\Oracle\Space\a\a_temp.dbf'</span> </span><br><span class="line">size 50m </span><br><span class="line">autoextend on  </span><br><span class="line">next 50m maxsize 20480m </span><br><span class="line">extent management <span class="built_in">local</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建命名空间"><a href="#创建命名空间" class="headerlink" title="创建命名空间"></a>创建命名空间</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create TABLESPACE a --创建命名空间</span><br><span class="line">DATAFILE<span class="string">'F:\Oracle\Space\a\a.ORA'</span> --选择创建位置</span><br><span class="line">SIZE 50M --尺寸大小为50M</span><br><span class="line">AUTOEXTEND ON NEXT 50M --超过就自动增加50M</span><br><span class="line">MAXSIZE 1G --最大为1G</span><br><span class="line">EXTENT MANAGEMENT LOCAL SEGMENT SPACE MANAGEMENT AUTO;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建用户授权"><a href="#创建用户授权" class="headerlink" title="创建用户授权"></a>创建用户授权</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create user USER--创建用户名</span><br><span class="line">identified by USER----密码</span><br><span class="line">default tablespace a--默认表空间</span><br><span class="line">temporary tablespace a_temp; --临时表空间</span><br><span class="line">grant connect,resource,dba to USER;--给用户授权限</span><br></pre></td></tr></table></figure>
+
+<h3 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h3><p>DBA：拥有全部特权，是系统最高权限，只有DBA才可以创建数据库结构。<br>RESOURCE:拥有Resource权限的用户只可以创建实体，不可以创建数据库结构。<br>CONNECT：拥有Connect权限的用户只可以登录Oracle，不可以创建实体，不可以创建数据库结构。<br>对于普通用户：授予connect, resource权限。<br>对于DBA管理用户：授予connect，resource, dba权限。<br>且系统权限只能由DBA用户授出：sys, system(最开始只能是这两个用户)。普通用户通过授权可以具有与system相同的用户权限，<br>但永远不能达到与sys用户相同的权限，system用户的权限也可以被回收。<br>grant unlimited tablespace to myreport–这个用户可以在其他表空间里随意建表。<br>角色CONNECT、RESOURCE和DBA都不具有UNLIMITED TABLESPACE的系统权限；<br>用户SYS和SYSTEM都具有UNLIMITED TABLESPACE的系统权限。</p>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create table userTB(  </span><br><span class="line">  stuid      number(10)   primary key,  </span><br><span class="line">  stuname    varchar2(20) not null,  </span><br><span class="line">  stusex     varchar2(4) </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="修改字段"><a href="#修改字段" class="headerlink" title="修改字段"></a>修改字段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">alter table userTB modify stuid  number(11);</span><br><span class="line">alter table userTB modify stusex  varchar2(4) ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">insert into userTB values(20172002222,<span class="string">'小毛'</span>,<span class="string">'男'</span>);</span><br><span class="line">insert into userTB values(20172004444,<span class="string">'小邓'</span>,<span class="string">'男'</span>);</span><br><span class="line">insert into userTB values(20172006666,<span class="string">'小李'</span>,<span class="string">'男'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加字段"><a href="#添加字段" class="headerlink" title="添加字段"></a>添加字段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">alter table userTB add(sex number(30) not null);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除字段"><a href="#删除字段" class="headerlink" title="删除字段"></a>删除字段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">alter table userTB drop（sex）</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除多个字段"><a href="#删除多个字段" class="headerlink" title="删除多个字段"></a>删除多个字段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">alter table userTB drop (sex,column_2,...);</span><br></pre></td></tr></table></figure>
+
+<h3 id="某一项为空值赋值"><a href="#某一项为空值赋值" class="headerlink" title="某一项为空值赋值"></a>某一项为空值赋值</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">select sum(NVL（sex,-10)) from usertb</span><br></pre></td></tr></table></figure>
+
+<h3 id="替换某个字段的某个字符串"><a href="#替换某个字段的某个字符串" class="headerlink" title="替换某个字段的某个字符串"></a>替换某个字段的某个字符串</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">update usertb <span class="built_in">set</span> sex = replace(sex,<span class="string">'0'</span>,<span class="string">'1'</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="还原表"><a href="#还原表" class="headerlink" title="还原表"></a>还原表</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">导出用户所有的表到D盘：exp moli419810/moli419810 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\biao.dmp;</span><br><span class="line">导出用户aa中的表dept到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept);</span><br><span class="line">导出用户aa中的表dept,emp到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept,emp);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除原用户"><a href="#删除原用户" class="headerlink" title="删除原用户"></a>删除原用户</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drop user aa</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create user aa identified by 1234;（aa:用户名，1234：密码）</span><br><span class="line">grant dba,connect to aa;-----授权</span><br></pre></td></tr></table></figure>
+
+<h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--将D盘的biao.dmp导入到新建用户bb中：</span><br><span class="line">imp moli419810/moli419810 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\biao.dmp full=y</span><br><span class="line">将用户aa中表dept中的数据导入到新建用户的dept表中：</span><br><span class="line">imp bb/1234 file=d:\dept.dmp tables=(dept) ignore=y full=y</span><br></pre></td></tr></table></figure>
+
+</span>
+
+
+
+
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>oracle数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Oracle数据库备份还原</title>
     <url>/2020/04/20/Oracle%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/</url>
     <content><![CDATA[<h2 style="font-family:'宋体'">oracle备份还原</h2>
@@ -54,7 +106,7 @@
       </tags>
   </entry>
   <entry>
-    <title>SQLserver</title>
+    <title>SQLserver触发器</title>
     <url>/2020/04/26/SQLserver%E8%A7%A6%E5%8F%91%E5%99%A8/</url>
     <content><![CDATA[<span style="font-family:'宋体';">
 
@@ -66,6 +118,7 @@
 <li>跟踪变化。触发器可以阻止数据库中未经许可的指定更新和变化。</li>
 <li>强制业务答逻辑。触发器可用于执行管理任务，并强制影响数据库的复杂业务规则。 </li>
 </ol>
+<p><img src="http://pic.netbian.com/uploads/allimg/190609/105506-156004890673db.jpg" alt="SQLserver触发器"></p>
 <h3 id="创建触发器-insert"><a href="#创建触发器-insert" class="headerlink" title="创建触发器 insert"></a>创建触发器 insert</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">添加一条订单时﹐减少商品表相应的货品记录中的库存</span><br><span class="line">create trigger trigger_order</span><br><span class="line">on ordertb</span><br><span class="line">after insert</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">  update shoptb <span class="built_in">set</span> shopnum-=inserted.num</span><br><span class="line">  from shopTB,inserted</span><br><span class="line">  <span class="built_in">where</span> shopTB.shopid=inserted.shopid</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
 <h3 id="删除触发器"><a href="#删除触发器" class="headerlink" title="删除触发器"></a>删除触发器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drop  trigger trigger_order</span><br></pre></td></tr></table></figure>
@@ -87,101 +140,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Oracle全面详细操作</title>
-    <url>/2020/04/21/Oracle%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<span style="font-family:'宋体';">
-
-<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net start oracleservice MYORACLEDB</span><br><span class="line">sqlplus sys/419810@orcl as sysdba  连接数据库实例</span><br><span class="line">sqlplus 用户名/密码@数据库实例 as sysdba  连接数据库实例</span><br></pre></td></tr></table></figure>
-
-<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conn 用户名/密码@数据库实例</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建临时表空间"><a href="#创建临时表空间" class="headerlink" title="创建临时表空间"></a>创建临时表空间</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create temporary tablespace a_temp </span><br><span class="line">tempfile <span class="string">'F:\Oracle\Space\a\a_temp.dbf'</span> </span><br><span class="line">size 50m </span><br><span class="line">autoextend on  </span><br><span class="line">next 50m maxsize 20480m </span><br><span class="line">extent management <span class="built_in">local</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建命名空间"><a href="#创建命名空间" class="headerlink" title="创建命名空间"></a>创建命名空间</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create TABLESPACE a --创建命名空间</span><br><span class="line">DATAFILE<span class="string">'F:\Oracle\Space\a\a.ORA'</span> --选择创建位置</span><br><span class="line">SIZE 50M --尺寸大小为50M</span><br><span class="line">AUTOEXTEND ON NEXT 50M --超过就自动增加50M</span><br><span class="line">MAXSIZE 1G --最大为1G</span><br><span class="line">EXTENT MANAGEMENT LOCAL SEGMENT SPACE MANAGEMENT AUTO;</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建用户授权"><a href="#创建用户授权" class="headerlink" title="创建用户授权"></a>创建用户授权</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create user USER--创建用户名</span><br><span class="line">identified by USER----密码</span><br><span class="line">default tablespace a--默认表空间</span><br><span class="line">temporary tablespace a_temp; --临时表空间</span><br><span class="line">grant connect,resource,dba to USER;--给用户授权限</span><br></pre></td></tr></table></figure>
-
-<h3 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h3><p>DBA：拥有全部特权，是系统最高权限，只有DBA才可以创建数据库结构。<br>RESOURCE:拥有Resource权限的用户只可以创建实体，不可以创建数据库结构。<br>CONNECT：拥有Connect权限的用户只可以登录Oracle，不可以创建实体，不可以创建数据库结构。<br>对于普通用户：授予connect, resource权限。<br>对于DBA管理用户：授予connect，resource, dba权限。<br>且系统权限只能由DBA用户授出：sys, system(最开始只能是这两个用户)。普通用户通过授权可以具有与system相同的用户权限，<br>但永远不能达到与sys用户相同的权限，system用户的权限也可以被回收。<br>grant unlimited tablespace to myreport–这个用户可以在其他表空间里随意建表。<br>角色CONNECT、RESOURCE和DBA都不具有UNLIMITED TABLESPACE的系统权限；<br>用户SYS和SYSTEM都具有UNLIMITED TABLESPACE的系统权限。</p>
-<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create table userTB(  </span><br><span class="line">  stuid      number(10)   primary key,  </span><br><span class="line">  stuname    varchar2(20) not null,  </span><br><span class="line">  stusex     varchar2(4) </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h3 id="修改字段"><a href="#修改字段" class="headerlink" title="修改字段"></a>修改字段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">alter table userTB modify stuid  number(11);</span><br><span class="line">alter table userTB modify stusex  varchar2(4) ;</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">insert into userTB values(20172002222,<span class="string">'小毛'</span>,<span class="string">'男'</span>);</span><br><span class="line">insert into userTB values(20172004444,<span class="string">'小邓'</span>,<span class="string">'男'</span>);</span><br><span class="line">insert into userTB values(20172006666,<span class="string">'小李'</span>,<span class="string">'男'</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加字段"><a href="#添加字段" class="headerlink" title="添加字段"></a>添加字段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">alter table userTB add(sex number(30) not null);</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除字段"><a href="#删除字段" class="headerlink" title="删除字段"></a>删除字段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">alter table userTB drop（sex）</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除多个字段"><a href="#删除多个字段" class="headerlink" title="删除多个字段"></a>删除多个字段</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">alter table userTB drop (sex,column_2,...);</span><br></pre></td></tr></table></figure>
-
-<h3 id="某一项为空值赋值"><a href="#某一项为空值赋值" class="headerlink" title="某一项为空值赋值"></a>某一项为空值赋值</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">select sum(NVL（sex,-10)) from usertb</span><br></pre></td></tr></table></figure>
-
-<h3 id="替换某个字段的某个字符串"><a href="#替换某个字段的某个字符串" class="headerlink" title="替换某个字段的某个字符串"></a>替换某个字段的某个字符串</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">update usertb <span class="built_in">set</span> sex = replace(sex,<span class="string">'0'</span>,<span class="string">'1'</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="还原表"><a href="#还原表" class="headerlink" title="还原表"></a>还原表</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">导出用户所有的表到D盘：exp moli419810/moli419810 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\biao.dmp;</span><br><span class="line">导出用户aa中的表dept到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept);</span><br><span class="line">导出用户aa中的表dept,emp到D盘:exp aa/1234 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\dept.dmp tables=(dept,emp);</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除原用户"><a href="#删除原用户" class="headerlink" title="删除原用户"></a>删除原用户</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drop user aa</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create user aa identified by 1234;（aa:用户名，1234：密码）</span><br><span class="line">grant dba,connect to aa;-----授权</span><br></pre></td></tr></table></figure>
-
-<h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--将D盘的biao.dmp导入到新建用户bb中：</span><br><span class="line">imp moli419810/moli419810 file=F:\oracle\MyOracleDB\MyOracleDBTableSpace\biao.dmp full=y</span><br><span class="line">将用户aa中表dept中的数据导入到新建用户的dept表中：</span><br><span class="line">imp bb/1234 file=d:\dept.dmp tables=(dept) ignore=y full=y</span><br></pre></td></tr></table></figure>
-
-</span>
-
-
-
-
-]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-      <tags>
-        <tag>oracle数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>拉姆</title>
-    <url>/2020/04/12/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F2/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
-<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
-]]></content>
-      <categories>
-        <category>动漫</category>
-        <category>情感</category>
-      </categories>
-      <tags>
-        <tag>治愈</tag>
-        <tag>恋爱</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿萨姆</title>
-    <url>/2020/04/13/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F3/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
-<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>美食</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>亚斯娜</title>
-    <url>/2020/04/14/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F4/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
-<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
-]]></content>
-      <categories>
-        <category>动漫</category>
-        <category>游戏</category>
-      </categories>
-      <tags>
-        <tag>治愈</tag>
-        <tag>热血</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第一篇文章</title>
     <url>/2020/04/19/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -200,13 +158,18 @@
 ]]></content>
   </entry>
   <entry>
-    <title>琪亚娜</title>
-    <url>/2020/04/19/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F6/</url>
+    <title>拉姆</title>
+    <url>/2020/04/12/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F2/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
 <p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
 ]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>情感</category>
+      </categories>
       <tags>
         <tag>治愈</tag>
+        <tag>恋爱</tag>
       </tags>
   </entry>
   <entry>
@@ -222,6 +185,44 @@
       <tags>
         <tag>治愈</tag>
         <tag>热血</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>亚斯娜</title>
+    <url>/2020/04/14/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F4/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>游戏</category>
+      </categories>
+      <tags>
+        <tag>治愈</tag>
+        <tag>热血</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿萨姆</title>
+    <url>/2020/04/13/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F3/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>美食</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>琪亚娜</title>
+    <url>/2020/04/19/%E6%88%91%E6%83%B3%E5%90%83%E6%8E%89%E4%BD%A0%E7%9A%84%E8%83%B0%E8%84%8F6/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
+<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+]]></content>
+      <tags>
+        <tag>治愈</tag>
       </tags>
   </entry>
   <entry>
