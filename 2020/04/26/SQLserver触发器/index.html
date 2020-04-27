@@ -12,7 +12,10 @@
     <meta name="keywords" content="小白,"> 
     <meta name="description" content="
 
-优点123456使用触发器有如下优点：1. 自动执行。触发器在对表的数据作了任何修改（比如手工输入或者应用程序的操作）之后立即被激活。2. 级联更新。触发器可以通过数据库中的相关表进行层叠更改，,"> 
+优点使用触发器有如下优点：
+
+自动执行。触发器在对表的数据作了任何修改（比如手工输入或者应用程序的操作）之后立即被激活。
+级联更新。触发器可以通过数据库中的相关表进行层叠更改，这比直接把代码写在,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.ico"> 
@@ -69,9 +72,14 @@
         <div class="content markdown">
             <span style="font-family:'宋体';">
 
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用触发器有如下优点：</span><br><span class="line">1. 自动执行。触发器在对表的数据作了任何修改（比如手工输入或者应用程序的操作）之后立即被激活。</span><br><span class="line">2. 级联更新。触发器可以通过数据库中的相关表进行层叠更改，这比直接把代码写在前台的做法回更安全合理。</span><br><span class="line">3. 强化约束。触发器可以引用其它表中的列，能够实现比CHECK约束更为复杂的约束。</span><br><span class="line">4. 跟踪变化。触发器可以阻止数据库中未经许可的指定更新和变化。</span><br><span class="line">5. 强制业务答逻辑。触发器可用于执行管理任务，并强制影响数据库的复杂业务规则。</span><br></pre></td></tr></table></figure>
-
-
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>使用触发器有如下优点：</p>
+<ol>
+<li>自动执行。触发器在对表的数据作了任何修改（比如手工输入或者应用程序的操作）之后立即被激活。</li>
+<li>级联更新。触发器可以通过数据库中的相关表进行层叠更改，这比直接把代码写在前台的做法回更安全合理。</li>
+<li>强化约束。触发器可以引用其它表中的列，能够实现比CHECK约束更为复杂的约束。</li>
+<li>跟踪变化。触发器可以阻止数据库中未经许可的指定更新和变化。</li>
+<li>强制业务答逻辑。触发器可用于执行管理任务，并强制影响数据库的复杂业务规则。 </li>
+</ol>
 <h3 id="创建触发器-insert"><a href="#创建触发器-insert" class="headerlink" title="创建触发器 insert"></a>创建触发器 insert</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">添加一条订单时﹐减少商品表相应的货品记录中的库存</span><br><span class="line">create trigger trigger_order</span><br><span class="line">on ordertb</span><br><span class="line">after insert</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">  update shoptb <span class="built_in">set</span> shopnum-=inserted.num</span><br><span class="line">  from shopTB,inserted</span><br><span class="line">  <span class="built_in">where</span> shopTB.shopid=inserted.shopid</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
 <h3 id="删除触发器"><a href="#删除触发器" class="headerlink" title="删除触发器"></a>删除触发器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop  trigger trigger_order</span><br></pre></td></tr></table></figure>

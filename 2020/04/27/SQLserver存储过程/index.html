@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>蕾姆 - Hexo</title>
+    <title>SQLserver存储过程 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="小白,"> 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;她还是走了，但是走的方式既不美好，也不浪漫。——〖我想吃掉你的胰脏〗
+    <meta name="description" content="
 
-"> 
+什么是存储过程？存储过程是一个预编译的SQL语句，优点是允许模块化的设计，就是说只需创建一次，以后在该程序中就可以调用多次。如果某次操作需要执行多次SQL，使用存储过程比单纯SQL语句执行要快。,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.ico"> 
@@ -43,7 +43,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://moli419810.github.io"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">蕾姆</h3>
+    <h3 class="subtitle">SQLserver存储过程</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -58,21 +58,36 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">蕾姆</h1>
+        <h1 class="title">SQLserver存储过程</h1>
         <div class="stuff">
-            <span>四月 11, 2020</span>
+            <span>四月 27, 2020</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%81%8B%E7%88%B1/" rel="tag">恋爱</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B2%BB%E6%84%88/" rel="tag">治愈</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag">存储过程</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
-<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+            <span style="font-family:'宋体';">
+
+<h3 id="什么是存储过程？"><a href="#什么是存储过程？" class="headerlink" title="什么是存储过程？"></a>什么是存储过程？</h3><p>存储过程是一个预编译的SQL语句，优点是允许模块化的设计，就是说只需创建一次，以后在该程序中就可以调用多次。<br>如果某次操作需要执行多次SQL，使用存储过程比单纯SQL语句执行要快。可以用一个命令对象来调用存储过程。</p>
+<h3 id="存储过程优点"><a href="#存储过程优点" class="headerlink" title="存储过程优点"></a>存储过程优点</h3><p>1.运行速度：对于很简单的sql，存储过程没有什么优势。对于复杂的业务逻辑，因为在存储过程创建的时候，数据库已经对其进行了一次解析和优化。存储过程一旦执行，在内存中就会保留一份这个存储过程，这样下次再执行同样的存储过程时，可以从内存中直接调用，所以执行速度会比普通sql快。<br>2.减少网络传输：存储过程直接就在数据库服务器上跑，所有的数据访问都在数据库服务器内部进行，不需要传输数据到其它服务器，所以会减少一定的网络传输。但是在存储过程中没有多次数据交互，那么实际上网络传输量和直接sql是一样的。而且我们的应用服务器通常与数据库是在同一内网，大数据的访问的瓶颈会是硬盘的速度，而不是网速。<br>3.可维护性：的存储过程有些时候比程序更容易维护，这是因为可以实时更新DB端的存储过程。  有些bug，直接改存储过程里的业务逻辑，就搞定了。<br>5.可扩展性：应用程序和数据库操作分开，独立进行，而不是相互在一起。方便以后的扩展和DBA维护优化<br><img src="http://pic.netbian.com/uploads/allimg/200424/004838-15876605183b78.jpg" alt="SQLserver存储过程"></p>
+<h3 id="存储过程实例"><a href="#存储过程实例" class="headerlink" title="存储过程实例"></a>存储过程实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">use <span class="built_in">test</span></span><br><span class="line">go</span><br><span class="line"><span class="keyword">if</span>(exists(select * from sys.sysobjects <span class="built_in">where</span> name=<span class="string">'proctest'</span>))</span><br><span class="line">drop proc proctest</span><br><span class="line">go</span><br><span class="line">create proc proctest</span><br><span class="line">@stuname nvarchar(20),@stuid int</span><br><span class="line">as</span><br><span class="line">begin tran</span><br><span class="line">update usertb <span class="built_in">set</span>  stuname=@stuname <span class="built_in">where</span> stuid=@stuid</span><br><span class="line"><span class="keyword">if</span>  @@ROWCOUNT=0</span><br><span class="line">begin</span><br><span class="line"><span class="built_in">print</span> <span class="string">'失败进行回滚'</span> </span><br><span class="line">rollback tran</span><br><span class="line">end</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">begin</span><br><span class="line"><span class="built_in">print</span> <span class="string">'执行成功'</span> </span><br><span class="line">commit tran</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="调用存储过程"><a href="#调用存储过程" class="headerlink" title="调用存储过程"></a>调用存储过程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> proctest <span class="string">'参数1'</span>,<span class="string">'参数2'</span></span><br></pre></td></tr></table></figure>
+</span>
+
+
+
+
+
+
+
+
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=1349515370.mp3">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=431853993.mp3">
             </audio>
             
         </div>
