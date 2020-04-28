@@ -5,14 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>拉姆 - Hexo</title>
+    <title>VS参数修饰符拓展 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="小白,"> 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;她还是走了，但是走的方式既不美好，也不浪漫。——〖我想吃掉你的胰脏〗
+    <meta name="description" content="
 
-"> 
+VS参数修饰符种类1.无修饰符：如果一个参数没有用参数修饰符标记，则认为他将按值传递，这将意味着被调用的方法收到原始数据的一份副本。
+1234567891011public Form2()   ,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.ico"> 
@@ -43,7 +44,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://moli419810.github.io"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">拉姆</h3>
+    <h3 class="subtitle">VS参数修饰符拓展</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -58,42 +59,37 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">拉姆</h1>
+        <h1 class="title">VS参数修饰符拓展</h1>
         <div class="stuff">
-            <span>四月 12, 2020</span>
+            <span>四月 28, 2020</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%81%8B%E7%88%B1/" rel="tag">恋爱</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B2%BB%E6%84%88/" rel="tag">治愈</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/VS%E5%8F%82%E6%95%B0%E4%BF%AE%E9%A5%B0%E7%AC%A6%E6%8B%93%E5%B1%95/" rel="tag">VS参数修饰符拓展</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <p>&nbsp;&nbsp;她还是走了，但是走的方式既不美好，也不浪漫。<br><span style="margin-left:300px;"><span>——〖我想吃掉你的胰脏〗</span></span></p>
-<p><img src="https://img3.doubanio.com/view/photo/l/public/p2542465780.webp" alt="我想吃掉你的胰脏"></p>
+            <span style="font-family:'宋体';">
+
+<h3 id="VS参数修饰符种类"><a href="#VS参数修饰符种类" class="headerlink" title="VS参数修饰符种类"></a>VS参数修饰符种类</h3><p>1.无修饰符：如果一个参数没有用参数修饰符标记，则认为他将按值传递，这将意味着被调用的方法收到原始数据的一份副本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public Form2()</span><br><span class="line">      &#123;</span><br><span class="line">          string message = <span class="string">"你好吗？"</span>;</span><br><span class="line">          SendMessage(message);</span><br><span class="line">          MessageBox.Show(message);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      public void SendMessage(string message) &#123;</span><br><span class="line">          message = <span class="string">"不错哦!"</span>;</span><br><span class="line">          MessageBox.Show(message);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.out: 输出参数由被调用的方法赋值，因此按引用传递，如果被调用的方法没有给输出参数默值，就会出现编译错误错。out 最大的用途就是调用者只使用一次方法就能获得多个返回值。(在C#7.0中要实现一次方法的调用就能获得多个返回值，建议使用元组)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public Form2()</span><br><span class="line">        &#123;</span><br><span class="line">            string message = <span class="string">"你好吗？"</span>;</span><br><span class="line">            SendMessage(out message);</span><br><span class="line">            MessageBox.Show(message);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public void SendMessage(out string message) &#123;</span><br><span class="line">            message = <span class="string">"不错哦!"</span>;</span><br><span class="line">            MessageBox.Show(message);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public Form2()</span><br><span class="line">       &#123;</span><br><span class="line">           string res = SendMessage(999999,out string wantPrice);</span><br><span class="line">           MessageBox.Show(res);</span><br><span class="line">           MessageBox.Show(wantPrice);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       public string SendMessage(int price,out string wantPrice) &#123;</span><br><span class="line">            wantPrice = <span class="string">"愿意出价"</span>+price;</span><br><span class="line">            <span class="built_in">return</span> <span class="string">"张三想买这套房"</span>;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>3.ref: (调用者赋初始值)， 并且可以由被调用的方法可选的重新赋值 (数据是按引用传递的)。如果被调用的方法未能给ref参数赋值，也不会有编译器错误。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public Form2()</span><br><span class="line">        &#123;</span><br><span class="line">            string message = <span class="string">"你好吗？"</span>;</span><br><span class="line">            SendMessage(ref message);</span><br><span class="line">            MessageBox.Show(message);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public void SendMessage(ref string message) &#123;</span><br><span class="line">            MessageBox.Show(message);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.params(了解即可): 这个参数修饰符允许将一组可变的数量的参数作为单独的逻辑参数进行传递，方法只能有一个parems修饰符，而且必须是方法的最后一个参数</p>
+<h3 id="out和ref的区别"><a href="#out和ref的区别" class="headerlink" title="out和ref的区别"></a>out和ref的区别</h3><p><font color="orange">out</font>修饰的参数必须再方法内修改，<font color="orange">ref</font>可以修改也可以不修改<br><font color="orange">out</font>修饰参数时候，参数是局部变量，可以不用赋值，因为out一定会对其进行赋值；<br><font color="orange">ref</font>修饰参数时候，参数必须有初始值才能调用；</p>
+</span>
+![VS参数修饰符拓展](http://pic.netbian.com/uploads/allimg/200401/114501-158571270169a9.jpg)
+
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=531295227.mp3">
             </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title='0' data-url='http://music.163.com/song/media/outer/url?id=1323083542.mp3'></li>
-                        
-                    
-                        
-                            <li title='1' data-url='http://music.163.com/song/media/outer/url?id=451782618.mp3'></li>
-                        
-                    
-                        
-                            <li title='2' data-url='http://music.163.com/song/media/outer/url?id=451782618.mp3'></li>
-                        
-                    
-                        
-                            <li title='3' data-url='http://music.163.com/song/media/outer/url?id=1350583043.mp3'></li>
-                        
-                    
-                </ul>
             
         </div>
         
